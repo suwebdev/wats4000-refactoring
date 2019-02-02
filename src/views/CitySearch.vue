@@ -2,15 +2,15 @@
   <div>
     <h2>City Search</h2>
     <form v-on:submit.prevent="getCities">
-        <p>Enter city name: <input type="text" v-model="query" placeholder="Paris, US"> <button type="submit">Go</button></p>
+        <p>Enter city name: <input type="text" v-model="query" placeholder="Paris"> <button type="submit">Go</button></p>
     </form>
     <ul class="cities" v-if="results && results.list.length > 0">
-        <li v-for="city in results.list">
+        <li v-for="(city,index) in results.list" :key="index">
             <h2>{{ city.name }}, {{ city.sys.country }}</h2>
             <p><router-link v-bind:to="{ name: 'CurrentWeather', params: { cityId: city.id } }">View Current Weather</router-link></p>
 
             <!-- TODO: Make weather summary be in a child component. -->
-            <div v-for="weatherSummary in city.weather" class="weatherSummary">
+            <div v-for="(weatherSummary,index) in city.weather" class="weatherSummary" :key="index">
                 <img v-bind:src="'http://openweathermap.org/img/w/' + weatherSummary.icon + '.png'" v-bind:alt="weatherSummary.main">
                 <br>
                 <b>{{ weatherSummary.main }}</b>
@@ -31,7 +31,7 @@
     <div v-else-if="errors.length > 0">
       <h2>There was an error fetching weather data.</h2>
       <ul class="errors">
-        <li v-for="error in errors">{{ error }}</li>
+        <li v-for="(error,index) in errors" :key="index">{{ error }}</li>
       </ul>
     </div>
   </div>
