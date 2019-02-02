@@ -8,7 +8,7 @@
     <div v-if="weatherData && errors.length===0">
 
       <!-- TODO: Make weather summary be in a child component. -->
-      <div v-for="weatherSummary in weatherData.weather" class="weatherSummary">
+      <div v-for="(weatherSummary,index) in weatherData.weather" :key="index" class="weatherSummary">
           <img v-bind:src="'http://openweathermap.org/img/w/' + weatherSummary.icon + '.png'" v-bind:alt="weatherSummary.main">
           <br>
           <b>{{ weatherSummary.main }}</b>
@@ -28,7 +28,7 @@
     <div v-else-if="errors.length > 0">
       <h2>There was an error fetching weather data.</h2>
       <ul class="errors">
-        <li v-for="error in errors">{{ error }}</li>
+        <li v-for="(error,index) in errors" :key="index">{{ error }}</li>
       </ul>
     </div>
     <div v-else>
