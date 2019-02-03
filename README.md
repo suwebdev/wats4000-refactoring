@@ -3,7 +3,7 @@
 > Practice refactoring a Vue.js project.
 
 This project provides resources to practice refactoring. It is designed to go
-along with the [Practical JavaScript 2: Application Architecture section](https://shawnr.gitbooks.io/practical-javascript-2-building-applications/application-architecture/). To
+along with the [Practical JavaScript 2: Application Architecture section](https://suwebdev.github.io/WATS-4000-gitbook/how-we-build/overview-of-web-applications-landscape.html). To
 successfully complete this project, we will need to improve the structure and
 organization of the code without altering the functionality of the application.
 
@@ -64,12 +64,10 @@ npm install
 npm run dev
 
 # build for production with minification
-npm run build
+npm run serve
 
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For detailed explanation on how Vue works, check out the [guide](https://cli.vuejs.org/guide/) and [docs for vue-loader](https://cli.vuejs.org/config/#css-loaderoptions).
 
 This project uses the [OpenWeatherMap.org API](https://openweathermap.org/).
